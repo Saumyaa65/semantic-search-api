@@ -69,18 +69,17 @@ Reasons for this choice:
 
 Using embeddings allows the system to retrieve documents based on meaning rather than exact word overlap.
 
-## Embedding Model Choice
+## Vector Database Choice
 
-The model **all-MiniLM-L6-v2** from the SentenceTransformers library was selected for generating embeddings.
+FAISS (Facebook AI Similarity Search) was used as the vector database for indexing and searching document embeddings.
 
-Reasons for this choice:
+Reasons for selecting FAISS:
 
-* **Semantic Understanding:** The model produces embeddings that capture semantic relationships between sentences rather than simple keyword matching.
-* **Efficiency:** It is a lightweight transformer model (~384 dimensional embeddings) that balances performance and speed.
-* **Industry Usage:** The model is widely used for semantic search, clustering, and retrieval tasks.
+* **High Performance:** FAISS provides extremely efficient nearest neighbor search for high-dimensional vectors.
+* **Scalability:** It can scale to millions of vectors while maintaining fast query performance.
+* **Flexibility:** The library provides multiple indexing strategies depending on the use case.
 
-Using embeddings allows the system to retrieve documents based on meaning rather than exact word overlap.
-
+For this implementation, a simple **IndexFlatL2** index was used to perform exact similarity search over the embeddings.
 
 ## Fuzzy Clustering Approach
 
